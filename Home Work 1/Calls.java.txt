@@ -1,0 +1,38 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Calls {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("What country are you calling from?");
+		String k1 = br.readLine();
+		int c1 = 5;
+		System.out.println("Tariff to " + k1 + " is " + c1 + "$ per minute");
+		System.out.println("How much time was call duration?");
+		int t1 = Integer.parseInt(br.readLine());
+		System.out.println("You spent " + t1 * c1 + "$.");
+		System.out.println("What country are you calling from?");
+		String k2 = br.readLine();
+		int c2 = 3;
+		System.out.println("Tariff to " + k2 + " is " + c2 + "$ per minute");
+		System.out.println("How much time was call duration?");
+		int t2 = Integer.parseInt(br.readLine());
+		System.out.println("You spent " + t2 * c2 + "$.");
+		System.out.println("What country are you calling from?");
+		String k3 = br.readLine();
+		int c3 = 6;
+		System.out.println("Tariff to " + k3 + " is " + c3 + "$ per minute");
+		System.out.println("How much time was call duration?");
+		int t3 = Integer.parseInt(br.readLine());
+		System.out.println("You spent " + t3 * c3 + "$.");
+		System.out.println("All your calls:");
+		System.out.println("From " + k1 + " during " + t1 + " minutes, you spent " + t1 * c1 + "$.");
+		System.out.println("From " + k2 + " during " + t2 + " minutes, you spent " + t2 * c2 + "$.");
+		System.out.println("From " + k3 + " during " + t3 + " minutes, you spent " + t3 * c3 + "$.");
+		System.out.println("You totaly spent " + (t1 * c1 + t2 * c2 + t3 * c3) + "$.");
+
+	}
+
+}
