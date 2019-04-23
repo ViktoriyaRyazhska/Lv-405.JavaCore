@@ -1,0 +1,94 @@
+Skip to content
+ 
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@olinichenkov 
+0
+0 0 olinichenkov/softserve
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
+softserve/Task1
+@olinichenkov olinichenkov Update Task1
+23fa6a3 5 hours ago
+65 lines (53 sloc)  2.87 KB
+    
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import static java.lang.Math.*;
+
+public class FirstLesson {
+    public static void main (String[] args) throws IOException {
+
+        System.out.println("Введіть радіус ліжка");
+        BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
+        int radius = Integer.parseInt(br.readLine());
+        System.out.println ("Діаметр " + 2* radius);
+        System.out.println ("Довжина ліжка "  + 2*Math.PI*radius);
+        System.out.println ("Площа ліжка " + PI* pow(radius,2));
+        System.out.println("Having fun :)");
+    }
+}
+
+
+---------------------------------------------------------------------------
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Task2 {
+    public static void main (String [] args) throws IOException {
+        BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
+        System.out.println ("Як тебе звуть?");
+        String name = br.readLine();
+        System.out.println("За якою адресою ти проживаєш, " + name + " ?");
+        String adress = br.readLine();
+        System.out.println(name + "ти молоедець, що живеш на Топольній, джава любить район " + adress);
+
+    }
+}
+----------------------------------------------------------------------------------------------------------
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Task3 {
+    public static void main (String [] args) throws IOException {
+        double c1, c2, c3, t1, t2,t3;
+        c1 = 1.24;
+        c2 = 1.64;
+        c3 = 3.24;
+        t1 = 32;
+        t2 = 23;
+        t3 = 56;
+        BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
+        System.out.println("Загалом на країну t1 затрачено " + c1*t1 + " доларів");
+        System.out.println ("Загалом на країну t2  затрачено " + c2*t2 + " доларів");
+        System.out.println ("Загалом на країну t3  затрачено " + c3*t3 + " доларів");
+        double totalMoney = c1*t1+c2*t2+c3*t3;
+        double totalMinutes = t1+t2+t3;
+        System.out.println("Загальна кількість хвилин витрачена на рощмови у країнах t1, t2, t,3 становить: " + totalMinutes);
+        System.out.println("Всього відбулось розмов на " + totalMoney*totalMinutes + " долари США" );
+        System.out.println("Тариф у яку країну Вас цікавить?");
+        double с1 = Double.parseDouble(br.readLine());
+        System.out.println("Тариф у країну c1 становить: " + с1);
+
+
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
