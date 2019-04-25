@@ -1,0 +1,57 @@
+package com.classWork;
+
+public class Emloyee {
+		private String name;
+		private double rate;
+		private int hours;
+		
+		public Emloyee(String name, double rate, int hours) {
+			this.name = name;
+			this.rate = rate;
+			this.hours = hours;
+		}
+		
+		public Emloyee(String name) {
+			this.name = name;
+		} 
+		
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public double getRate() {
+			return rate;
+		}
+		public void setRate(double rate) {
+			this.rate = rate;
+		}
+		public int getHours() {
+			return hours;
+		}
+		public void setHours(int hours) {
+			this.hours = hours;
+		}
+
+		@Override
+		public String toString() {
+			return "Emloyee [name=" + name + ", rate=" + rate + ", hours=" + hours + "]";
+		}
+
+			
+
+	}
+------------------------------------------------
+package com.classWork;
+
+public class Employee2 {
+	public static void main (String[] args) {
+		Emloyee w1 = new Emloyee("Oleg", 12,34);
+		Emloyee w2 = new Emloyee("Olya", 23, 54);
+		Emloyee w3 = new Emloyee("Bodya", 22,53);
+		System.out.println(w1);
+
+	}
+
+}
