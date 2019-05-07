@@ -87,9 +87,7 @@ public class Person {
                 System.out.print("Enter the birthday year = ");
                 String personBirthdayYear = consoleReader.readLine();
 
-                Person person = new Person();
-                person.input(personName, personBirthdayYear);
-                persons[index] = person;
+                persons[index] = new Person(personName,personBirthdayYear);
 
             }
 
