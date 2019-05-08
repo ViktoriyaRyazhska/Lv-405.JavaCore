@@ -55,6 +55,10 @@ public class Lesson4HomeWorkTest {
         dog2 = new Dog("name1",2,Dog.breeds.GERMAN_SHEPHERD);
         dog3 = new Dog("name2",2,Dog.breeds.GERMAN_SHEPHERD);
         assertTrue(Lesson4HomeWork.isDogNameUnique(dog1,dog2,dog3));
+        dog1 = new Dog("name",8, Dog.breeds.GERMAN_SHEPHERD);
+        dog2 = new Dog("Name",2, Dog.breeds.POODLE);
+        dog3 = new Dog("NAME",5, Dog.breeds.LABRADOR_RETRIEVER);
+        assertTrue(Lesson4HomeWork.isDogNameUnique(dog1,dog2,dog3));
     }
 
     @Test
