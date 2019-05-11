@@ -42,8 +42,7 @@ public class Lesson4HomeWork {
             System.out.println(dog2);
             System.out.println(dog3);
 
-            boolean uniqNameChecker = isDogNameUnique(dog1,dog2,dog3);
-            System.out.println("Dog name is unique? : " + uniqNameChecker);
+            System.out.println("Dog name is unique? : " + isDogNameUnique(dog1,dog2,dog3));
 
             Dog oldestDog = getOldestDog(dog1,dog2,dog3);
             System.out.println("Oldest dog is : " + oldestDog.getName() + " " + oldestDog.getBreed());
