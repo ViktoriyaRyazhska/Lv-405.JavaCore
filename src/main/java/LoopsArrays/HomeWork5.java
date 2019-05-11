@@ -43,9 +43,9 @@ public class HomeWork5 {
             System.out.println("We have array " + Arrays.toString(arr));
             System.out.println("Position of second positive number is " + positionSecPosNumber);
             System.out.println("---------------3.2----------------");
-            int[] minAndPos = getMinElemAndItPosition(arr);
-            System.out.println("Min elem is " + minAndPos[0]);
-            System.out.println("Min elem position is " + minAndPos[1]);
+            int minPos = getMinElemPosition(arr);
+            System.out.println("Min elem is " + minPos);
+            System.out.println("Min elem position is " + arr[minPos]);
 
             System.out.println("---------------4----------------");
             System.out.println("Lets play with console :)");
@@ -123,15 +123,13 @@ public class HomeWork5 {
 
             int value;
             int productEvenNumbers = 1;
-            boolean isEven = false;
             while ((value = Integer.parseInt(br.readLine())) > -1) {
                 if(value % 2 == 0){
-                    isEven = true;
                     productEvenNumbers *= value;
                 }
             }
 
-            return isEven ? productEvenNumbers : -1;
+            return productEvenNumbers;
         }
 
 
@@ -140,31 +138,19 @@ public class HomeWork5 {
      * @return Array witch has two elem - first is min elem and second is position in passed array min elem
      * @throws IllegalArgumentException If argument is null or arr.length < 1
      */
-    public static int[] getMinElemAndItPosition(int[] arr)throws IllegalArgumentException {
+    public static int getMinElemPosition(int[] arr)throws IllegalArgumentException {
         if(arr == null || arr.length < 1){
             throw new IllegalArgumentException("Array cannot be null and can't have length less than 1");
         }
 
-        int[] result = new int[2];
-        int min = arr[0];
         int positOfMinVal = 0;
-
-        if(arr.length == 1){
-             result[0] = min;
-             return result;
-        }
-
-        for (int index = 1; index < arr.length; index++) {
-            if(arr[index] < min){
-                min = arr[index];
+        for (int index = 0; index < arr.length; index++) {
+            if(arr[index] < arr[positOfMinVal]){
                 positOfMinVal = index;
             }
         }
 
-        result[0] = min;
-        result[1] = positOfMinVal;
-
-        return result;
+        return positOfMinVal;
     }
 
     /**
@@ -198,19 +184,10 @@ public class HomeWork5 {
      */
     public static int[] getDaysArray(int monthNumber, boolean isLeapYear){
         switch (monthNumber){
-            case 1:  return new int[31];
-            case 2:  return isLeapYear ? new int[29] : new int[28];
-            case 3:  return new int[31];
-            case 4:  return new int[30];
-            case 5:  return new int[31];
-            case 6:  return new int[30];
-            case 7:  return new int[31];
-            case 8:  return new int[31];
-            case 9:  return new int[30];
-            case 10: return new int[31];
-            case 11: return new int[30];
-            case 12: return new int[31];
-                default: return null;
+            case 2:                                                   return isLeapYear ? new int[29] : new int[28];
+            case 1: case 3: case 5: case 7: case 8: case 10: case 12: return new int[31];
+            case 4: case 6: case 9: case 11:                          return new int[30];
+            default:                                                  return null;
         }
     }
 
@@ -224,27 +201,28 @@ public class HomeWork5 {
             throw new IllegalArgumentException("Array cannot be null and can't have length less than 10");
         }
 
-        boolean isFirstFiveNegative = false;
-        for (int index = 0; index < arr.length/2; index++) {
+        boolean isFirstFivePositive = true;
+        int product = 1;
+        int sum = 0;
+        for (int index = 0; index < arr.length / 2; index++) {
+
             if(arr[index] < 0){
-                isFirstFiveNegative = true;
+                isFirstFivePositive = false;
+                break;
             }
+            sum += arr[index];
         }
 
-        if(isFirstFiveNegative){
-            int product = 1;
-            for (int index = arr.length/2; index < arr.length; index++){
+        if(!isFirstFivePositive){
+            return sum;
+        }
+        else {
+            for (int index = arr.length / 2; index < arr.length; index++) {
                 product *= arr[index];
             }
             return product;
         }
-        else{
-            int sum = 0;
-            for(int index = 0; index < arr.length/2; index++){
-                sum += arr[index];
-            }
-            return sum;
-        }
+
     }
 
 
