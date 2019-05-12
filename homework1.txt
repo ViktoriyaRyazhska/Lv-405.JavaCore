@@ -1,0 +1,78 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+public class main {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter radius of your flower bad");
+		double rad = Double.parseDouble(br.readLine());
+		System.out.println("Perimeter = 2 · I · R" + rad * 2 * 3.14);
+		System.out.println("Area = I r2" + 3.14 * (rad * rad));
+		
+	}
+}
+
+__________________________________________________________________________________________
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main  {
+	public static void main(String[] args) throws IOException {
+	    BufferedReader br = new BufferedReader(
+	    		new InputStreamReader(System.in));
+
+	    	System.out.println("What is your name?");
+	    	String name = br.readLine();
+	    	System.out.println("Where are you live, "+ name);
+	    	String adress = br.readLine();
+
+	    	System.out.println("Hello " + name);  
+	    	System.out.println("You live in " + adress);
+
+
+	}
+
+}
+________________________________________________________________________________________
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+public class main {
+	 public static void main(String[] args) throws IOException {
+	    BufferedReader br = new BufferedReader(
+	    		new InputStreamReader(System.in));
+
+	    	System.out.println("Enter first country");
+	    	String name1 = br.readLine();
+	    	System.out.println("How much one minute in USD??");
+	    	double min1 = Double.parseDouble(br.readLine());
+	    	System.out.println("how much time?");
+	    	double dur1 = Double.parseDouble(br.readLine());
+
+	    	System.out.println("Enter second country");
+	    	String name2 = br.readLine();
+	    	System.out.println("How much one minute in USD?");
+	    	double min2 = Double.parseDouble(br.readLine());
+	    	System.out.println("how much time?");
+	    	double dur2 = Double.parseDouble(br.readLine());
+	    	
+	    	System.out.println("Enter third country ");
+	    	String name3 = br.readLine();
+	    	System.out.println("How much one minute in USD?");
+	    	double min3 = Double.parseDouble(br.readLine());
+	    	System.out.println("how much time?");
+	    	double dur3 = Double.parseDouble(br.readLine());
+	    	
+	    	System.out.println("Your call cost " + name1 + " is" + " " + min1*dur1 + "USD");  
+	    	System.out.println("Your call cost " + name2 + " is" + " " + min2*dur2 + "USD");
+	    	System.out.println("Your call cost " + name3 + " is" + " " + min3*dur3 + "USD");
+	    	System.out.println("Your total cost calls " + name1 + ", " + name2 + ", " + name3 + " is" + " " + ((min1*dur1)+(min2*dur2)+(min3*dur3)) + "USD");
+	}
+
+}
