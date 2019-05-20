@@ -23,7 +23,6 @@ public class Car {
 		this.engine = engine;
 	}
 	public Car(String type, int year, double engine) {
-		super();
 		this.type = type;
 		this.year = year;
 		this.engine = engine;

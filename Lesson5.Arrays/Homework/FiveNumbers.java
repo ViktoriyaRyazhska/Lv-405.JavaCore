@@ -22,6 +22,7 @@ public class FiveNumbers {
 				pos++;
 			if (pos == 2) {
 				System.out.println("Second positive number at position " + (i+1));
+				break;
 			}
 				
 			}

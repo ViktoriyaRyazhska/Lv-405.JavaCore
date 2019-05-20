@@ -36,7 +36,9 @@ public class Numbers {
 		for (int j = 0; j < numbers.length; j++) {
 			if (numbers[j] < 0) {
 				countNegative++;
-			} countPositive++;
+			} else {
+				countPositive++;
+			}
 			
 		}
 		
