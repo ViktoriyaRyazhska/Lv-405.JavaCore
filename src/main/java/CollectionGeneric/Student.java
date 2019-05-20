@@ -17,7 +17,7 @@ public class Student {
         this.id = ++idCounter;
     }
 
-    public void printStudentsByCourse(List<Student> studList, int course) throws IllegalArgumentException{
+    public static void printStudentsByCourse(List<Student> studList, int course) throws IllegalArgumentException{
         if(studList == null){
             throw new IllegalArgumentException("List cannot be null");
         }
@@ -26,7 +26,7 @@ public class Student {
         while(studIter.hasNext()){
             Student studTmp = studIter.next();
             if(studTmp.course == course){
-                System.out.println();
+                System.out.println(studTmp);
             }
         }
     }
