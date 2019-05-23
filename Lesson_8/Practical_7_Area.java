@@ -13,7 +13,7 @@ public class Practical_7_Area {
 			System.out.println("Площа прямокутника становить - "+area());
 		} catch (Exception e) {
 			System.err.println(e.getMessage() + "\n");
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 
 	}
