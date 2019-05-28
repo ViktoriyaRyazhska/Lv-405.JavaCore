@@ -43,7 +43,7 @@ public class Main {
 
     // if arguments is double method will not throw ArithmeticException(division by zero) because double / 0.0 = infinity
     // and 0.0 / 0.0 = NaN
-    private static double div(double a, double b){
+    private static double div(double a, double b)throws ArithmeticException{
         return a / b;
     }
 
