@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 
 public class Main {
@@ -19,6 +20,17 @@ public class Main {
         System.out.println(GetPosition.getPosition());
         System.out.println(OnlyPositive.getPositive());
 
+        Car[] car = new Car[4];
+        car[0] = new Car("Bus", 2000, 190);
+        car[1] = new Car("Truck", 2004, 290);
+        car[2] = new Car("Car", 2004, 140);
+        car[3] = new Car("Bicycle", 2018, 2);
+
+//Task 5
+        System.out.println("Let`s see, what we have...");
+        System.out.print("Model year = ");
+        int modelYear = Integer.parseInt(br.readLine());
+        Car.showCars(car, modelYear);
 
 
     }
