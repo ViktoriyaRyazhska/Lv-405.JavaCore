@@ -95,44 +95,17 @@ public class Depth {
 
     }
 
-    /* Визнвчити чи є шлях між from and to, використвоуючи пошук в ширину
-
-     */
     void isflight(String from, String to) {
-
-        int dist, dist2;
+        int dist;
         FlightInfo f;
 
-        //Цей стек необхдіний при пошуку в ширину
-        Stack resetStck = new Stack();
-        //Перегляд наявності пункту відправлення
+        //Визначення місця прибуття
         dist = match(from, to);
         if (dist != 0) {
             btStack.push(new FlightInfo(from, to, dist));
             return;
         }
 
-        /* Фрагмент нижче є першою модифікованою частиною для пошука в ширину.
-         Тут проводиться провірка всіх маршрутів із заданого вузла
-
-         */
-
-        while ((f = find(from)) != null) {
-            resetStck.push(f);
-            if ((dist = match(f.to, to)) != 0) {
-                resetStck.push(f.to);
-                btStack.push(new FlightInfo(from, f.to, f.distance));
-                btStack.push(new FlightInfo(f.to, to, dist));
-                return;
-            }
-        }
-        /* В наступному коді проводиться перевстановлення полів skip, встановлених в попередньому циклі.
-        Ця частина також модифікована для пошука в ширину
-         */
-
-        int i = resetStck.size();
-        for (; i != 0; i--)
-            resetSkip((FlightInfo) resetStck.pop());
         //Попробувати інший маршрут
         f = find(from);
         if (f != null) {
@@ -142,13 +115,6 @@ public class Depth {
             f = (FlightInfo) btStack.pop();
             isflight(f.from, f.to);
         }
-    }
-
-    void resetSkip(FlightInfo f) {
-        for (int i = 0; i < numFlights; i++)
-            if (flights[i].from.equals(f.from) && flights[i].to.equals(f.to)) flights[i].skip = false;
-
-
     }
 
 
