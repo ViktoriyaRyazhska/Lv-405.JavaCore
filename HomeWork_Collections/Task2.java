@@ -7,41 +7,50 @@ import java.util.Map.Entry;
 public class Task2 {
 
 	public static void main(String[] args) {
-		Map<String, String> personMap = new HashMap<>() {
-			{
-				put("Q", "A");
-				put("W", "A");
-				put("E", "D");
-				put("Y", "S");
-				put("T", "G");
-				put("TT", "S");
-				put("ASD", "F");
-				put("Rt", "F");
-				put("Bs", "H");
+		try {
+			Map<String, String> personMap = new HashMap<>() {
+				{
+					put("Q", "A");
+					put("W", "A");
+					put("E", "D");
+					put("Y", "S");
+					put("T", "G");
+					put("TT", "S");
+					put("ASD", "F");
+					put("Rt", "F");
+					put("Bs", "H");
+				}
+			};
+
+
+			for (Entry entry : personMap.entrySet()) {
+				System.out.println(entry.getKey() + " " + entry.getValue());
 			}
-		};
+
+			System.out.println("========================");
 
 
-		for (Entry entry : personMap.entrySet()) {
-			System.out.println(entry.getKey() + " " + entry.getValue());
-		}
+			for (Map.Entry<String, Integer> entry : searchSameName(personMap).entrySet()) {
+				System.out.println(entry.getKey() + " " + entry.getValue());
+			}
 
-		System.out.println("========================");
+			System.out.println("========================");
 
+			for (Entry entry : removeSameNames(personMap, "S").entrySet()) {
+				System.out.println(entry.getKey() + " " + entry.getValue());
+			}
 
-		for (Map.Entry<String, Integer> entry : searchSameName(personMap).entrySet()) {
-			System.out.println(entry.getKey() + " " + entry.getValue());
-		}
-
-		System.out.println("========================");
-
-
-		for (Entry entry : removeSameNames(personMap, "S").entrySet()) {
-			System.out.println(entry.getKey() + " " + entry.getValue());
+		} catch (IllegalArgumentException | NullPointerException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 	}
 
-	public static Map<String, Integer> searchSameName (Map <String,String> personMap){
+	public static Map<String, Integer> searchSameName(Map<String, String> personMap)
+			throws IllegalArgumentException {
+		if (personMap == null) {
+			throw new IllegalArgumentException("Argument can't be null");
+		}
 		Map<String, Integer> sameName = new HashMap<String, Integer>();
 		String temp;
 		for (Map.Entry<String, String> entry : personMap.entrySet()) {
@@ -54,8 +63,12 @@ public class Task2 {
 		}
 		return sameName;
 	}
-	
-	public static Map<String, String> removeSameNames (Map <String,String> personMap, String removableName){
+
+	public static Map<String, String> removeSameNames(Map<String, String> personMap, String removableName)
+			throws IllegalArgumentException {
+		if (personMap == null || removableName == null) {
+			throw new IllegalArgumentException("Argument can't be null");
+		}
 		while (personMap.values().contains(removableName)) {
 			personMap.values().remove(removableName);
 		}

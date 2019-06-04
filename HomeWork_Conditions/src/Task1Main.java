@@ -12,6 +12,7 @@ public class Task1Main {
 
 		System.out.println("Enter start and end of the range:");
 		System.out.println("Start: ");
+		try {
 		task1.setStartOfRange(Integer.parseInt(br.readLine()));
 
 		System.out.println("End: ");
@@ -64,7 +65,10 @@ public class Task1Main {
 		
 		
 		System.out.println("Oldest dog: " + Dog.getOldestDog(dogs));
-		
+		} catch (IllegalArgumentException | NullPointerException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
 
 		
 

@@ -28,17 +28,21 @@ public class Dog {
 		this.age = age;
 	}
 
-	public static String sameDogName(Dog name1, Dog name2, Dog name3) {
-
-		if (name1.equals(name2) || name1.equals(name3) || name2.equals(name3)) {
-			return "Yes";
+	public static boolean sameDogName(Dog name1, Dog name2, Dog name3) throws IllegalArgumentException {
+		if (name1 == null || name2 == null || name3 == null) {
+			throw new IllegalArgumentException("Argument can't be null");
 		}
-		return "No";
+
+		return (name1.equals(name2) || name1.equals(name3) || name2.equals(name3));
 	}
 
 
 
-	public static String getOldestDog(ArrayList<Dog> dogs) {
+	public static String getOldestDog(ArrayList<Dog> dogs) throws IllegalArgumentException{
+		
+		if (dogs == null) {
+			throw new IllegalArgumentException("Argument can't be null");
+		}
 
 		int max = dogs.get(0).getAge();
 		int i;
@@ -53,7 +57,6 @@ public class Dog {
 		return Integer.toString(max) + " year " + dogBreed;
 
 	}
-
 
 
 	public Breed getBreed() {

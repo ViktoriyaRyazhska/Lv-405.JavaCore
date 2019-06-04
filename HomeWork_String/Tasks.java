@@ -11,26 +11,35 @@ public class Tasks {
 	public static void main(String[] args) throws IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		System.out.println("Enter the sentence:");
-		String str = br.readLine();
 
-		String[] arr = str.split(" ");
-		System.out.println(longestWordInSentence(arr));
-		System.out.println(numberOfLettersInSentence(arr));
-		System.out.println(reverseWords(arr, 2));
+		try {
+			System.out.println("Enter the sentence:");
+			String str = br.readLine();
 
-		System.out.println("Enter the sentence:");
-		String str2 = br.readLine();
-		System.out.println(deleteMoreThanOneSpace(str2));
+			String[] arr = str.split(" ");
+			System.out.println(longestWordInSentence(arr));
+			System.out.println(numberOfLettersInSentence(arr));
+			System.out.println(reverseWords(arr, 2));
 
-		System.out.println("Enter the sentence with US:");
-		String str3 = br.readLine();
-		System.out.println(usCurrency(str3));
+			System.out.println("Enter the sentence:");
+			String str2 = br.readLine();
+			System.out.println(deleteMoreThanOneSpace(str2));
+
+			System.out.println("Enter the sentence with US:");
+			String str3 = br.readLine();
+			System.out.println(usCurrency(str3));
+
+		} catch (IOException | NumberFormatException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
 
 	}
 
-	public static String longestWordInSentence(String[] str) {
+	public static String longestWordInSentence(String[] str) throws IllegalArgumentException {
+		if (str == null || str.length == 0) {
+			throw new IllegalArgumentException("String can't be null");
+		}
 		String maxLenghtWord = str[0];
 		for (int i = 0; i < str.length; i++) {
 			if (str[i].length() > maxLenghtWord.length()) {
@@ -40,7 +49,10 @@ public class Tasks {
 		return maxLenghtWord;
 	}
 
-	public static int numberOfLettersInSentence(String[] str) {
+	public static int numberOfLettersInSentence(String[] str) throws IllegalArgumentException {
+		if (str == null || str.length == 0) {
+			throw new IllegalArgumentException("String can't be null");
+		}
 		int numberOfLetters = 0;
 		for (int i = 0; i < str.length; i++) {
 			numberOfLetters += str[i].length();
@@ -48,16 +60,25 @@ public class Tasks {
 		return numberOfLetters;
 	}
 
-	public static String reverseWords(String[] str, int wordPosition) {
+	public static String reverseWords(String[] str, int wordPosition) throws IllegalArgumentException {
+		if (str == null || str.length == 0) {
+			throw new IllegalArgumentException("String can't be null");
+		}
 		return new StringBuilder(str[wordPosition - 1]).reverse().toString();
 
 	}
 
-	public static String deleteMoreThanOneSpace(String str) {
+	public static String deleteMoreThanOneSpace(String str) throws IllegalArgumentException {
+		if (str == null) {
+			throw new IllegalArgumentException("String can't be null");
+		}
 		return str.replaceAll("\\s+", " ");
 	}
 
-	public static String usCurrency(String str) {
+	public static String usCurrency(String str) throws IllegalArgumentException {
+		if (str == null) {
+			throw new IllegalArgumentException("String can't be null");
+		}
 		Pattern p = Pattern.compile("\\$\\d+\\.\\d{2}");
 		Matcher m = p.matcher(str);
 		String temp = "";
