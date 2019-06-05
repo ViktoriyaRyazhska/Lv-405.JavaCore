@@ -5,13 +5,23 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class TaskOne {
-//	public static void main(String[] args) throws Exception, IOException {
-//
-//
-//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//		System.out.println("Input number");
-//		int n = Integer.parseInt(br.readLine());
-		int[] number = new int [n];
+
+	private int n;
+
+	public int getN() {
+		return n;
+	}
+
+	public void setN(int n) {
+		this.n = n;
+	}
+
+	public static void task1() throws Exception, IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Input number");
+		int n = Integer.parseInt(br.readLine());
+		int[] number = new int[n];
 		number[0] = 0;
 		number[1] = 1;
 		System.out.print(number[0] + " ");
@@ -19,9 +29,8 @@ public class TaskOne {
 
 		for (int i = 2; i < n; i++) {
 			number[i] = number[i - 1] + number[i - 2];
-		System.out.print(number[i] + " ");
+			System.out.print(number[i] + " ");
 
-
-	}
+		}
 	}
 }
